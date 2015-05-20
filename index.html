@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://cdn.firebase.com/js/client/2.2.5/firebase.js"></script>
+</head>
+<body>
+<!-- FB Auth -->
+<script>
+window.fbAsyncInit = function() {
+    FB.init({
+        appId      : '834064613349602',
+        xfbml      : true,
+        version    : 'v2.3'
+    });
+};
+
+(function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
+var ref = new Firebase("https://cm-fit-track.firebaseio.com");
+ref.authWithOAuthPopup("facebook", function(error, authData) {
+    if (error) {
+        console.log("Login Failed!", error);
+    } else {
+        console.log("Authenticated successfully with payload:", authData);
+    }
+});
+</script>
+<!-- End FB Auth -->
+<div class="fb-like"
+    data-share="true"
+    data-width="450"
+    data-show-faces="true">
+</div>
+</body>
+</html>
+
+
+<!-- https://www.firebase.com/docs/web/quickstart.html -->
