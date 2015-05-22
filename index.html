@@ -32,13 +32,18 @@
             <input type="text" class="form-control" id="fatPct">
         </div>
         <div class="form-group">
-            <label for="boneWeight">Bone Weight</label>
-            <input type="text" class="form-control" id="boneWeight">
-        </div>
-        <div class="form-group">
             <label for="waterPct">Water Percentage</label>
             <input type="text" class="form-control" id="waterPct">
         </div>
+        <div class="form-group">
+            <label for="musclePct">Muscle Percentage</label>
+            <input type="text" class="form-control" id="musclePct">
+        </div>
+        <div class="form-group">
+            <label for="boneWeight">Bone Weight</label>
+            <input type="text" class="form-control" id="boneWeight">
+        </div>
+
         <div class="form-group">
             <label></label>
             <input type="hidden" id="honeypot" value="">
@@ -55,12 +60,12 @@
             <canvas id="bodyWeightChart" height="450" width="600"></canvas>
         </div>
     </div>
-    <div class="panel panel-success">
+    <div class="panel panel-warning">
         <div class="panel-heading">
-            <h3 class="panel-title">Bone Weight (lbs)</h3>
+            <h3 class="panel-title">Fat Content (%)</h3>
         </div>
         <div class="panel-body">
-            <canvas id="boneWeightChart" height="450" width="600"></canvas>
+            <canvas id="fatPctChart" height="450" width="600"></canvas>
         </div>
     </div>
     <div class="panel panel-primary">
@@ -71,14 +76,23 @@
             <canvas id="waterPctChart" height="450" width="600"></canvas>
         </div>
     </div>
-    <div class="panel panel-warning">
+    <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title">Fat Content (%)</h3>
+            <h3 class="panel-title">Muscle Content (%)</h3>
         </div>
         <div class="panel-body">
-            <canvas id="fatPctChart" height="450" width="600"></canvas>
+            <canvas id="musclePctChart" height="450" width="600"></canvas>
         </div>
     </div>
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <h3 class="panel-title">Bone Weight (lbs)</h3>
+        </div>
+        <div class="panel-body">
+            <canvas id="boneWeightChart" height="450" width="600"></canvas>
+        </div>
+    </div>
+
     <h2>Before &amp; After</h2>
     <div class="row">
         <div class="col-md-6">

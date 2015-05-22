@@ -9,13 +9,14 @@ var CJMEvents = ( function()
             var bodyWeight = [], $bodyWeightChartCont = document.getElementById( 'bodyWeightChart' ),
                 boneWeight = [], $boneWeightChartCont = document.getElementById( 'boneWeightChart' ),
                 waterPct = [], $waterPctChartCont = document.getElementById( 'waterPctChart' ),
+                musclePct = [], $musclePctChartCont = document.getElementById( 'musclePctChart' ),
                 fatPct = [], $fatPctChartCont = document.getElementById( 'fatPctChart' ),
                 date = [];
 
             $html.removeClass( 'no-js' ).addClass( 'js' );
 
             cmFitTrack.on( 'value', function(snapshot) {
-                console.log(snapshot.val());
+                //console.log(snapshot.val());
 
                 var stats = snapshot.val();
 
@@ -25,12 +26,14 @@ var CJMEvents = ( function()
                         boneWeight.push(stats[key].boneWeight);
                         waterPct.push(stats[key].waterPct);
                         fatPct.push(stats[key].fatPct);
+                        musclePct.push(stats[key].musclePct);
                         date.push(stats[key].date);
                     }
                 }
 
                 CJMEvents.drawChart( CJMEvents.returnData( bodyWeight, date, 'Body Weight' ), $bodyWeightChartCont );
                 CJMEvents.drawChart( CJMEvents.returnData( boneWeight, date, 'Bone Weight' ), $boneWeightChartCont );
+                CJMEvents.drawChart( CJMEvents.returnData( musclePct, date, 'Muscle Percent' ), $musclePctChartCont );
                 CJMEvents.drawChart( CJMEvents.returnData( fatPct, date, 'Fat Percentage' ), $fatPctChartCont );
                 CJMEvents.drawChart( CJMEvents.returnData( waterPct, date, 'Water Percentage' ), $waterPctChartCont );
 
@@ -73,6 +76,7 @@ var CJMEvents = ( function()
 
             stats.bodyWeight = $( '#bodyWeight' ).val();
             stats.fatPct = $( '#fatPct' ).val();
+            stats.musclePct = $( '#musclePct' ).val();
             stats.boneWeight = $( '#boneWeight' ).val();
             stats.waterPct = $( '#waterPct' ).val();
             stats.date = moment().format( 'MMMM Do YYYY' );
